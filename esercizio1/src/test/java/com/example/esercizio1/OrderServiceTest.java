@@ -17,7 +17,6 @@ public class OrderServiceTest {
     void testStandardShippingService() {
         double result = standardShippingService.calculateShipping("EUROPE", 10);
         assertEquals(35.0, result);
-        System.err.println("testStandardShippingService" + result);
     }
 
     @Test
@@ -29,8 +28,20 @@ public class OrderServiceTest {
     private final OrderService orderService = new OrderService(standardShippingService, expresShippingService);
 
     @Test
-    void testOrderService() {
+    void testStandardOrderService() {
         double result = orderService.getTotalShippingCost("standard","EUROPE", 10);
         assertEquals(35.0, result);
+    }
+
+    @Test
+    void testExpressOrderService() {
+        double result = orderService.getTotalShippingCost("express","EUROPE", 10);
+        assertEquals(65.0, result);
+    }
+
+    @Test
+    void testNullOrderService() {
+        double result = orderService.getTotalShippingCost("blablalbla","EUROPE", 10);
+        assertEquals(0, result);
     }
 }
