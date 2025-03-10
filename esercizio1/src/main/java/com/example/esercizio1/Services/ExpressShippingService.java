@@ -19,6 +19,5 @@ public class ExpressShippingService implements IShippingService{
         else{
             return weight;
         }
-
     }
 }
