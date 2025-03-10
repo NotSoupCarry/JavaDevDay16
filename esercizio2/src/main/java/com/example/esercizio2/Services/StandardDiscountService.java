@@ -14,9 +14,9 @@ public class StandardDiscountService implements IDiscountService {
         if (orderTotal < 100) {
             return orderTotal;
         } else if (orderTotal >= 100 && orderTotal <= 200) {
-            return orderTotal * 5 / 100;
+            return orderTotal - orderTotal * 5 / 100;
         } else {
-            return orderTotal * 10 / 100;
+            return orderTotal - orderTotal * 10 / 100;
         }
     }
 }

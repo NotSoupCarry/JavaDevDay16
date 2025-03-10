@@ -7,13 +7,14 @@ import com.example.esercizio2.Interfaces.IDiscountService;
 @Service
 @Qualifier("expressDiscountService")
 public class ExpressDiscountService implements IDiscountService {
+    @Override
     public double applyDiscount(double orderTotal) {
         if (orderTotal < 100) {
-            return orderTotal;
-        } else if (orderTotal >= 100 && orderTotal <= 200) {
-            return orderTotal * 7 / 100;
+            return orderTotal; // Nessuno sconto
+        } else if (orderTotal >= 100 && orderTotal < 200) {
+            return orderTotal - (orderTotal * 0.07); // Sconto 7%
         } else {
-            return orderTotal * 12 / 100;
+            return orderTotal - (orderTotal * 0.12); // Sconto 12%
         }
     }
 }
