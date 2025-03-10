@@ -9,9 +9,8 @@ import com.example.esercizio1.Services.StandardShippingService;
 
 @Configuration
 public class AppConfig {
-
-    // @Bean
-    // public IShippingService iShippingService(){
-    //     return new StandardShippingService(); // Cambia facilmente l'implementazione!
-    // }
+    @Bean
+    public IShippingService expresShippingService(){
+        return new customExpressShippingService();
+    }
 }
