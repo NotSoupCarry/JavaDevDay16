@@ -29,6 +29,7 @@ public class OrderService {
             double weight) {
         double shipmentResult;
         double orderResult;
+        
         if (shippingType.equalsIgnoreCase("standard")) { // se è standard usa standardService
             shipmentResult = standardShippingService.calculateShippingCost(country, weight);
         } else if (shippingType.equalsIgnoreCase("express")) { // se è express usa expressService
